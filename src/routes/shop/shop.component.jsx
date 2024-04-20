@@ -4,21 +4,18 @@ import { useDispatch } from 'react-redux'
 
 import CategoriesPreview from '../categories-preview/categories-preview.component';
 import Category from '../category/category.component';
-import { getCategoriesAndDocuments,addCollectionAndDocuments } from '../../utils/firebase/firebase.utils';
+import { getCategoriesDocuments } from '../../utils/firebase/firebase.utils';
 import { setCategories } from '../../store/categories/category.action';
-import DIRECTORY_DATA from '../../directory-data.js'
-//import SHOP_DATA from '../../shop-data.js'
+
 
 const Shop = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-  	addCollectionAndDocuments('directory', DIRECTORY_DATA)
-  }, [])
-
+  //Get Cateogories for the Redux Store
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories');
+      const categoriesArray = await getCategoriesDocuments();
       dispatch(setCategories(categoriesArray));
+
     };
 
     getCategoriesMap();

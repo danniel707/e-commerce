@@ -19,9 +19,14 @@ export const NavigationContainer = styled.div`
 `;
 
 export const Logo = styled(Link)`
-  height: 100%;
-  width: 70px;
-  padding: 25px;  
+  margin-top: 2px;
+  margin-left: 30px;  
+`
+
+export const Brand = styled(Link)`  
+  margin-top: 5px;
+  margin-left: 460px;
+
 `
 
 export const NavLinks = styled.div`

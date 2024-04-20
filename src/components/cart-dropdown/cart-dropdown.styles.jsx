@@ -31,6 +31,7 @@ export const EmptyMessage = styled.span`
 `
 
 export const CartItems = styled.div`
+    width: auto;
     height: 240px;
     display: flex;
     flex-direction: column;

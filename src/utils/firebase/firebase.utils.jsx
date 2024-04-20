@@ -14,6 +14,7 @@ import {getFirestore,
         setDoc, 
         collection, 
         writeBatch,
+        orderBy,
         query,
         getDocs} from 'firebase/firestore'
 // Your web app's Firebase configuration
@@ -55,9 +56,19 @@ export const addCollectionAndDocuments = async (collectionkey, objectsToAdd) => 
   console.log('Done')
 }
 
-export const getCategoriesAndDocuments = async () => {
+export const getCategoriesDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
+
+  //await Promise.reject(new Error('new error'))
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  
+}
+
+export const getDirectoryDocuments = async () => {
+  const collectionRef = collection(db, 'directory');
+  const q = query(collectionRef, orderBy('id'));
 
   //await Promise.reject(new Error('new error'))
   const querySnapshot = await getDocs(q);

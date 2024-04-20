@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../../components/product-card/product-card.component';
 import Spinner from '../../components/spinner/spinner.component'
 import { selectCategoriesMap, selectCategoriesIsLoading } from '../../store/categories/category.selector'
-
+import ScrollTopButton from '../../components/scroll-top-button/scroll-top-button.component';
 import './category.styles.scss';
 
 const Category = () => {
@@ -32,6 +32,8 @@ const Category = () => {
 			</div>
 			)}
 			
+			<ScrollTopButton />		
+
 		</Fragment>		
 	)
 };
